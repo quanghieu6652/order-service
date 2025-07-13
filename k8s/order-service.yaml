@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: quanghieu6652/order-service:latest  # Jenkins sẽ override bằng tag mới
+          image: quanghieu6652/order-service:1
+  # Jenkins sẽ override bằng tag mới
           ports:
             - containerPort: 8082
 ---
