@@ -1,13 +1,11 @@
 spring:
-  profiles:
-      active: local
   application:
     name: order-service
 
   datasource:
-    url: jdbc:postgresql://postgres:5432/orderdb  # tên service postgres trong docker-compose
+    url: jdbc:postgresql://my-postgres-postgresql:5432/orderdb
     username: postgres
-    password: quanghieu
+    password: f39piFvP7l   # <--- dùng mật khẩu thật của bạn đã lấy từ Secret
 
   jpa:
     hibernate:
@@ -18,7 +16,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   kafka:
-    bootstrap-servers: kafka:9092  # tên service kafka
+    bootstrap-servers: my-kafka:9092   # <--- nếu bạn dùng Helm cài Kafka
 
     consumer:
       group-id: order-group
@@ -38,10 +36,16 @@ spring:
 
   data:
     redis:
-      host: redis
+      host: chart-redis-master     # hoặc `my-redis-master` nếu bạn dùng Helm cài `my-redis`
       port: 6379
-      # password: your_redis_password (bỏ comment nếu Redis có password)
 
 server:
   port: 8082
-  address: 0.0.0.0
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
