@@ -36,7 +36,7 @@ spring:
 
   data:
     redis:
-      host: chart-redis-master     # hoặc `my-redis-master` nếu bạn dùng Helm cài `my-redis`
+      host: chart-redis-master.default.svc.cluster.local
       port: 6379
 
 server:
