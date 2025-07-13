@@ -38,8 +38,7 @@ spring:
     redis:
       host: chart-redis-master.default.svc.cluster.local
       port: 6379
-      password: ZmSoEiZIi7%
-
+      password: "ZmSoEiZIi7%"
 
 server:
   port: 8082
