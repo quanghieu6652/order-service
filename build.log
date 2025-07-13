@@ -1,0 +1,36 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 225B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:17-jdk
+#2 DONE 5.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 163B done
+#4 DONE 0.0s
+
+#5 [1/3] FROM docker.io/library/eclipse-temurin:17-jdk@sha256:2b30a44e190ba55a351164c6d836764577c276c810ca058fcee77c992bf186bb
+#5 resolve docker.io/library/eclipse-temurin:17-jdk@sha256:2b30a44e190ba55a351164c6d836764577c276c810ca058fcee77c992bf186bb 0.0s done
+#5 DONE 0.0s
+
+#6 [2/3] WORKDIR /app
+#6 CACHED
+
+#7 [3/3] COPY target/order-service-0.0.1-SNAPSHOT.jar app.jar
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:a0b4166e971f87e318ddbf868e7c4f985c6cbaefc825f5a0d8c05ac50ddb6c4f done
+#8 exporting config sha256:d9620c31a2311e8836b355c0867234e28e10d901d06484ac61e3a30ca0e622d7 done
+#8 exporting attestation manifest sha256:25e9f4e4ddba5e2f79dc0375490c896d4793d846d257d12e96ebce0701bb685c done
+#8 exporting manifest list sha256:6c628eb3875d91161d931633799f048e5b5b7c76ff0e4914a0d9c6166018814c done
+#8 naming to docker.io/quanghieu/order-service:latest done
+#8 unpacking to docker.io/quanghieu/order-service:latest done
+#8 DONE 0.0s
