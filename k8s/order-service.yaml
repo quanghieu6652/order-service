@@ -14,10 +14,16 @@ spec:
     spec:
       containers:
         - name: order-service
-          image: quanghieu6652/order-service:1
-  # Jenkins sẽ override bằng tag mới
+          image: quanghieu6652/order-service:1  # Jenkins sẽ override bằng tag mới
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8082
+          env:
+            - name: SPRING_REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: chart-redis
+                  key: redis-password
 ---
 apiVersion: v1
 kind: Service
@@ -30,4 +36,38 @@ spec:
     - protocol: TCP
       port: 8082
       targetPort: 8082
-  type: NodePort  # Để bạn có thể truy cập bằng `minikube service`
+  type: NodePort
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: order-service
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: order-service
+#   template:
+#     metadata:
+#       labels:
+#         app: order-service
+#     spec:
+#       containers:
+#         - name: order-service
+#           image: quanghieu6652/order-service:1
+#   # Jenkins sẽ override bằng tag mới
+#           ports:
+#             - containerPort: 8082
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: order-service
+# spec:
+#   selector:
+#     app: order-service
+#   ports:
+#     - protocol: TCP
+#       port: 8082
+#       targetPort: 8082
+#   type: NodePort  # Để bạn có thể truy cập bằng `minikube service`
