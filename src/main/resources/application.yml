@@ -38,7 +38,6 @@ spring:
     redis:
       host: chart-redis-master.default.svc.cluster.local
       port: 6379
-      username: default
       password: YjXbRr8P1H
 
 
