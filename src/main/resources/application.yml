@@ -38,6 +38,8 @@ spring:
     redis:
       host: chart-redis-master.default.svc.cluster.local
       port: 6379
+      password: YjXbRr8P1H%
+
 
 server:
   port: 8082
@@ -49,4 +51,4 @@ management:
     web:
       exposure:
         include: health,info
-        
+
